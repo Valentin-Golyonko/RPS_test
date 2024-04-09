@@ -15,6 +15,10 @@ asgiref==3.8.1
     # via
     #   daphne
     #   django
+async-timeout==4.0.3
+    # via asyncpg
+asyncpg==0.29.0
+    # via -r requirements.in
 attrs==23.2.0
     # via
     #   automat
@@ -129,7 +133,7 @@ sniffio==1.3.1
     # via
     #   anyio
     #   httpx
-sqlalchemy==2.0.29
+sqlalchemy[asyncio]==2.0.29
     # via -r requirements.in
 sqlparse==0.4.4
     # via django

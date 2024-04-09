@@ -21,3 +21,5 @@ daphne
 ## DB
 psycopg[binary]
 sqlalchemy
+sqlalchemy[asyncio]
+asyncpg
