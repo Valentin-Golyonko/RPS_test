@@ -49,6 +49,8 @@ email-validator==2.1.1
     # via fastapi
 fastapi[all]==0.110.1
     # via -r requirements.in
+greenlet==3.0.3
+    # via sqlalchemy
 gunicorn==21.2.0
     # via -r requirements.in
 h11==0.14.0
@@ -84,6 +86,10 @@ orjson==3.10.0
     # via fastapi
 packaging==24.0
     # via gunicorn
+psycopg[binary]==3.1.18
+    # via -r requirements.in
+psycopg-binary==3.1.18
+    # via psycopg
 pyasn1==0.6.0
     # via
     #   pyasn1-modules
@@ -123,6 +129,8 @@ sniffio==1.3.1
     # via
     #   anyio
     #   httpx
+sqlalchemy==2.0.29
+    # via -r requirements.in
 sqlparse==0.4.4
     # via django
 starlette==0.37.2
@@ -134,8 +142,10 @@ txaio==23.1.1
 typing-extensions==4.11.0
     # via
     #   fastapi
+    #   psycopg
     #   pydantic
     #   pydantic-core
+    #   sqlalchemy
     #   twisted
 ujson==5.9.0
     # via fastapi

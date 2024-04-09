@@ -40,7 +40,9 @@ gevent==24.2.1
 geventhttpclient==2.0.12
     # via locust
 greenlet==3.0.3
-    # via gevent
+    # via
+    #   -c requirements.txt
+    #   gevent
 idna==3.6
     # via
     #   -c requirements.txt

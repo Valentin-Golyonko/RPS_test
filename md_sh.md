@@ -30,6 +30,11 @@ pip-sync requirements.txt requirements_dev.txt --pip-args "--retries 10 --timeou
 openssl rand -hex 32
 ```
 
+#### migration
+```shell
+python manage.py makemigrations && python manage.py migrate
+```
+
 #### 
 ```shell
 

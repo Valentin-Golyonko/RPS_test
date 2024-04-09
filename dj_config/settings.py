@@ -62,7 +62,22 @@ ASGI_APPLICATION = "dj_config.asgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {}
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "rps_test",
+        "USER": "postgres",
+        "PASSWORD": "postgres",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
+    }
+}
+
+AUTH_USER_MODEL = "dj_core.CustomUser"
+
+"""https://docs.djangoproject.com/en/5.0/ref/databases/#persistent-database-connections"""
+CONN_MAX_AGE = 0
+CONN_HEALTH_CHECKS = True
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

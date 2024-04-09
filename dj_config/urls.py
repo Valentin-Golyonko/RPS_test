@@ -18,11 +18,20 @@ Including another URLconf
 # from django.contrib import admin
 from django.urls import path
 
-from dj_core.views import SyncDummyView, AsyncDummyView, async_dummy_foo
+from dj_core.views import (
+    SyncDummyView,
+    AsyncDummyView,
+    async_dummy_foo,
+    SyncUserView,
+    AsyncUserView,
+)
 
 urlpatterns = [
     #    path('admin/', admin.site.urls),
     path("dj_sync_dummy_view", SyncDummyView.as_view(), name="dj_sync_dummy_view"),
     path("dj_async_dummy_view", AsyncDummyView.as_view(), name="dj_async_dummy_view"),
     path("dj_async_dummy_foo", async_dummy_foo, name="dj_async_dummy_foo"),
+    #
+    path("dj_sync_user_view", SyncUserView.as_view(), name="dj_sync_user_view"),
+    path("dj_async_user_view", AsyncUserView.as_view(), name="dj_async_user_view"),
 ]
