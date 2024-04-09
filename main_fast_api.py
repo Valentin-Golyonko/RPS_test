@@ -2,7 +2,7 @@ from random import randint
 
 from fastapi import FastAPI, Depends
 from pydantic import BaseModel
-from sqlalchemy import String, create_engine, select
+from sqlalchemy import String, create_engine
 from sqlalchemy.orm import sessionmaker, DeclarativeBase, Mapped, mapped_column, Session
 
 
