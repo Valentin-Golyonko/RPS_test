@@ -3,8 +3,8 @@ from uvicorn.workers import UvicornWorker
 
 class MyUvicornWorker(UvicornWorker):
     CONFIG_KWARGS = {
-        "loop": "asyncio",  # auto | asyncio | uvloop
-        "http": "h11",  # auto | h11 | httptools
+        "loop": "uvloop",  # auto | asyncio | uvloop
+        "http": "httptools",  # auto | h11 | httptools
         "lifespan": "off",
         "workers": 1,
         "interface": "asgi3",  # auto | asgi3 | asgi2 | wsgi
@@ -21,4 +21,4 @@ bind = ":8001"
 workers = 4
 raw_env = "DJANGO_SETTINGS_MODULE=dj_config.settings"
 errorlog = "./logs/gunicorn_dj_async.log"
-# max_requests = 100
+keepalive = 120

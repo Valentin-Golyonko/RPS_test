@@ -15,22 +15,17 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "93a3cccfdaa77ec824a08d94a72801b44509983cd2b0012c64dfae19bdd7c902"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
-
+ALLOWED_HOSTS = ("*",)
 
 # Application definition
-
-INSTALLED_APPS = [
+INSTALLED_APPS = (
     # "daphne",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -39,9 +34,9 @@ INSTALLED_APPS = [
     # 'django.contrib.staticfiles',
     #
     "dj_core.apps.DjCoreConfig",
-]
+)
 
-MIDDLEWARE = [
+MIDDLEWARE = (
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -49,19 +44,18 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     # 'django.contrib.messages.middleware.MessageMiddleware',
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-]
+)
 
 ROOT_URLCONF = "dj_config.urls"
 
-TEMPLATES = []
+TEMPLATES = ()
 
 WSGI_APPLICATION = "dj_config.wsgi.application"
-ASGI_APPLICATION = "dj_config.asgi.application"
-
+# ASGI_APPLICATION = "dj_config.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
+# https://docs.djangoproject.com/en/5.0/ref/databases/#persistent-database-connections
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -70,19 +64,15 @@ DATABASES = {
         "PASSWORD": "postgres",
         "HOST": "127.0.0.1",
         "PORT": "5432",
+        "CONN_MAX_AGE": 30,
+        "CONN_HEALTH_CHECKS": True,
     }
 }
-
 AUTH_USER_MODEL = "dj_core.CustomUser"
-
-"""https://docs.djangoproject.com/en/5.0/ref/databases/#persistent-database-connections"""
-CONN_MAX_AGE = 0
-CONN_HEALTH_CHECKS = True
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
+AUTH_PASSWORD_VALIDATORS = (
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
@@ -95,8 +85,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
-]
-
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -114,8 +103,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = ""
+
+MEDIA_URL = ""
+MEDIA_ROOT = ""
+
+STATICFILES_DIRS = ()
+STATICFILES_FINDERS = ()
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": True,
+    "handlers": {},
+    "loggers": {},
+}
